@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.gefersonholdorf.simuladorpenaltis.entities.Jogador;
+import com.gefersonholdorf.simuladorpenaltis.entities.League;
 import com.gefersonholdorf.simuladorpenaltis.entities.Time;
 
 import lombok.Data;
@@ -22,6 +23,8 @@ public class TimeDTO implements Serializable{
 
     private List<JogadorDTO> players = new ArrayList<>();
 
+    private String league;
+
     public TimeDTO(Time time) {
         this.id = time.getId();
         this.name = time.getName();
@@ -29,8 +32,9 @@ public class TimeDTO implements Serializable{
         this.pot = time.getPot();
     }
 
-    public TimeDTO(Time time, List<Jogador> players) {
+    public TimeDTO(Time time, League league, List<Jogador> players) {
         this(time);
+        this.league = league.getName();
         players.forEach(cat -> this.players.add(new JogadorDTO(cat, cat.getNome())));
     }
 }

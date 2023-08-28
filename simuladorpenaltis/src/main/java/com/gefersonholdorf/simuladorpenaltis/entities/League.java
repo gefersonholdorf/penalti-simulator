@@ -10,8 +10,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
@@ -24,8 +22,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "tb_times")
-public class Time implements Serializable {
+@Table(name = "tb_leagues")
+public class League implements Serializable{
     private static final long serialVersionUID = 1L;
     
     @Id
@@ -33,29 +31,23 @@ public class Time implements Serializable {
     private Long id;
 
     private String name;
-    private String logo_img;
-    private Double pot;
-    
+
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant createdAt;
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-    private Instant updateAt;
+    private Instant updatedAt;
 
-    @OneToMany(mappedBy = "time")
-    private List<Jogador> players = new ArrayList<>();
-
-    @ManyToOne
-    @JoinColumn(name = "id_league")
-    private League league;
+    @OneToMany(mappedBy = "league")
+    private List<Time> teams = new ArrayList<>();
 
     @PrePersist
     public void prePersist() {
-        createdAt = Instant.now();
+        this.createdAt = Instant.now();
     }
 
     @PreUpdate
     public void preUpdate() {
-        updateAt = Instant.now();
+        this.updatedAt = Instant.now();
     }
 }

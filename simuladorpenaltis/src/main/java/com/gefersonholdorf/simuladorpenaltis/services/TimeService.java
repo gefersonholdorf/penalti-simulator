@@ -24,14 +24,14 @@ public class TimeService {
     @Transactional(readOnly = true)
     public Page<TimeDTO> findAllPaged(PageRequest pageRequest) {
         Page<Time> list = repository.findAll(pageRequest);
-        return list.map(x -> new TimeDTO(x, x.getPlayers()));
+        return list.map(x -> new TimeDTO(x, x.getLeague(), x.getPlayers()));
     }
 
     @Transactional(readOnly = true)
     public TimeDTO findById(Long id) {
         Optional<Time> obj = repository.findById(id);
         Time time = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found!"));
-        return new TimeDTO(time, time.getPlayers());
+        return new TimeDTO(time, time.getLeague(), time.getPlayers());
     }
 
     @Transactional

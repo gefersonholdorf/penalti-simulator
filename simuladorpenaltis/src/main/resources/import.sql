@@ -1,7 +1,9 @@
-INSERT INTO tb_times (name, logo_img, pot) VALUES ('La Mutual', 'img1', 93);
-INSERT INTO tb_times (name, logo_img, pot) VALUES ('DavCar', 'img1', 87);
-INSERT INTO tb_times (name, logo_img, pot) VALUES ('RedBull Davis', 'img1', 80);
-INSERT INTO tb_times (name, logo_img, pot) VALUES ('Athletico Gambiteiros', 'img1', 85);
+INSERT INTO tb_leagues (name) VALUES ('League Brazil');
+
+INSERT INTO tb_times (name, logo_img, pot, id_league) VALUES ('La Mutual', 'img1', 93, 1);
+INSERT INTO tb_times (name, logo_img, pot, id_league) VALUES ('DavCar', 'img1', 87, 1);
+INSERT INTO tb_times (name, logo_img, pot, id_league) VALUES ('RedBull Davis', 'img1', 80, 1);
+INSERT INTO tb_times (name, logo_img, pot, id_league) VALUES ('Athletico Gambiteiros', 'img1', 85, 1);
 
 INSERT INTO tb_players (nome, idade, img, hab, pot, posicao, id_time) VALUES ('Geferson', 21, 'img1', 88, 89, 'FIXO', 1);
 INSERT INTO tb_players (nome, idade, img, hab, pot, posicao, id_time) VALUES ('João', 24, 'img1', 92, 74, 'GOLEIRO', 2);

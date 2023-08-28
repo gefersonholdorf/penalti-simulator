@@ -3,15 +3,12 @@ package com.gefersonholdorf.simuladorpenaltis.dto;
 import java.io.Serializable;
 
 import com.gefersonholdorf.simuladorpenaltis.entities.Jogador;
-import com.gefersonholdorf.simuladorpenaltis.entities.Time;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class JogadorDTO implements Serializable{
     private static final long serialVersionUID = 1L;
 
