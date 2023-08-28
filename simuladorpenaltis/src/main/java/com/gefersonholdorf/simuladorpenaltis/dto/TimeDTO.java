@@ -31,6 +31,6 @@ public class TimeDTO implements Serializable{
 
     public TimeDTO(Time time, List<Jogador> players) {
         this(time);
-        players.forEach(cat -> this.players.add(new JogadorDTO(cat)));
+        players.forEach(cat -> this.players.add(new JogadorDTO(cat, cat.getNome())));
     }
 }

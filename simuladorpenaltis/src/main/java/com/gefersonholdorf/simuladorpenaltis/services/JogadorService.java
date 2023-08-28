@@ -24,14 +24,14 @@ public class JogadorService {
     @Transactional(readOnly = true)
     public Page<JogadorDTO> findAllPaged(PageRequest pageRequest) {
         Page<Jogador> list = repository.findAll(pageRequest);
-        return list.map(x -> new JogadorDTO(x, x.getTime()));
+        return list.map(x -> new JogadorDTO(x, x.getTime().getName()));
     }
 
     @Transactional(readOnly = true)
     public JogadorDTO findById(Long id) {
         Optional<Jogador> obj = repository.findById(id);
         Jogador jogador = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found!"));
-        return new JogadorDTO(jogador, jogador.getTime());
+        return new JogadorDTO(jogador, jogador.getTime().getName());
     }
 
     @Transactional

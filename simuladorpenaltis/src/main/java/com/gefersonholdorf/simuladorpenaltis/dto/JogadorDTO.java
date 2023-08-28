@@ -23,7 +23,7 @@ public class JogadorDTO implements Serializable{
     private Double pot;
     private String posicao;
 
-    private TimeDTO time;
+    private String time;
     
     public JogadorDTO(Jogador jogador) {
         this.id = jogador.getId();
@@ -35,8 +35,8 @@ public class JogadorDTO implements Serializable{
         this.posicao = jogador.getPosicao();
     }
 
-    public JogadorDTO(Jogador jogador, Time time) {
+    public JogadorDTO(Jogador jogador, String time) {
         this(jogador);
-        this.time = new TimeDTO(jogador.getTime());
+        this.time = jogador.getTime().getName();
     }
 }
